@@ -36,16 +36,6 @@ vim.opt.list = true
 -- list of files with 100 max cols (filetype must be detected, duh)
 local long_files = {'soy', 'css', 'gss', 'scss', 'sql', 'java', 'kotlin', 'spansdl', 'bzl'}
 
--- file search
--- set path+=**
--- set wildmenu
-
--- basic search
--- set smartcase
--- set incsearch
--- set showmatch
--- set hlsearch
-
 -- splits
 vim.opt.splitright = true
 vim.opt.splitbelow = true
@@ -59,13 +49,11 @@ vim.cmd("autocmd Filetype python setlocal shiftwidth=4")
 vim.cmd("autocmd Filetype java setlocal tabstop=4")
 vim.cmd("autocmd Filetype java setlocal shiftwidth=4")
 
---[[ possibly handle these via treesitter
 -- special syntax cases
 vim.cmd("autocmd BufNewFile,BufRead *.bash* set syntax=bash")
 vim.cmd("autocmd BufNewFile,BufRead *.soy set syntax=soy")
 vim.cmd("autocmd BufNewFile,BufRead *.proto set syntax=proto")
 vim.cmd("autocmd BufNewFile,BufRead *.textproto set syntax=textproto")
---]]
 
 -- drew's plugins
 require("config.lazy")
@@ -75,77 +63,28 @@ require("config.lazy")
 vim.keymap.set('n', '<leader>nt', ':NvimTreeToggle<CR>')
 vim.keymap.set('n', '<leader>nf', ':NvimTreeFindFile<CR>')
 
+-- telescope
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+
+-- lsp
+vim.keymap.set("n", "<leader>h", vim.lsp.buf.hover, {})
+vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
+vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
+
 --[[
-- delimiter closer
 - codesearch -- internal
 - cider lsp -- internal
 - hg.nvim -- internal
-- ripgrep -- non-work
-- 'tpope/vim-fugitive'
-- 'tpope/vim-abolish'
-- 'tpope/vim-unimpaired'
-- 'tpope/vim-repeat'
-- 'tpope/vim-surround'
-- 'mhinz/vim-signify'
 --]]
 
 --[[
--- source control stuff
-
 " add these if not in goog env
 if !filereadable(expand("~/.goog/goog.vim"))
-  Plugin 'ycm-core/YouCompleteMe'
-endif
-call vundle#end()
-
-" import goog stuff
-if filereadable(expand("~/.goog/goog.vim"))
-  source ~/.goog/goog.vim
-else
-  " setup non-goog stuff
-endif
-
-" YCM
-set completeopt-=preview
-let g:ycm_max_diagnostics_to_display = 0
-let g:ycm_key_invoke_completion = '<leader>.'
-
-" Think [i]de [s]how ...
-" ... [e]xpand(error)
-let g:ycm_key_detailed_diagnostics = '<leader>ise'
-" ... [t]ype
-nnoremap <leader>ist :YcmCompleter GetType<CR>
-" ... [d]oc
-nnoremap <leader>isd :YcmCompleter GetDoc<CR>
-" ... [a]ll [d]iagnostics
-nnoremap <leader>isad :YcmDiags<CR>
-" ... [r]eferences
-nnoremap <leader>isr :YcmCompleter GoToReferences<CR>
-
-" Think [i]de [g]oto ...
-" ... [def]inition
-nnoremap <leader>igdef :YcmCompleter GoToDefinition<CR>
-" ... [dec]laration
-nnoremap <leader>igdec :YcmCompleter GoToDeclaration<CR>
-
-" Think [i]de [c]hange ...
-" ... [f]ix
-nnoremap <leader>icf :YcmCompleter FixIt<CR>
-" ... [r]ename
-nnoremap <leader>icr :YcmCompleter RefactorRename<space>
-" ... [o]rganize [i]mports
-nnoremap <leader>icoi :YcmCompleter OrganizeImports<CR>
-
-" NERD commenter
-" <leader>c<space> is comment toggle
-" <leader>cA switches comment symbol
-" <leader>c$ comment from cursor to end of line
-let g:NERDCreateDefaultMappings = 1
-let g:NERDSpaceDelims = 1
-let g:NERDDefaultAlign = 'left'
-
-" signify
-set updatetime=100
 ]]--
 
 -- Regular Mappings

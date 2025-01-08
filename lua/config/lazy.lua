@@ -20,7 +20,7 @@ require("lazy").setup({
     -- import your plugins
     { import = "plugins" },
   },
-  install = { colorscheme = { "solarized" } },
+  install = { colorscheme = { "flattened_dark" } },
   rocks = { enabled = false },
   -- automatically check for plugin updates
   checker = { enabled = true },
