@@ -136,7 +136,9 @@ endfun
 ]]--
 
 -- let the work config have the last word
-if vim.fn.filereadable("~/.goog/lua/goog.lua") then
+local goog = io.open("$HOME/.goog/lua/goog.lua", r)
+if goog ~= nil then
   package.path = "~/.goog/lua/goog.lua;" .. package.path
   require("goog")
+  io.close(goog)
 end

@@ -14,13 +14,21 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+local specs = {
+  { import = "plugins" },
+}
+
+local goog = io.open("$HOME/.goog/lua/goog.lua", r)
+if goog ~= nil then
+  table.insert(specs,
+    { dir = "~/.goog/", import = "goog_plugins" }
+  )
+  io.close(goog)
+end
+
 -- Setup lazy.nvim
 require("lazy").setup({
-  spec = {
-    -- import your plugins
-    { import = "plugins" },
-    { dir = "~/.goog/", import = "goog_plugins" },
-  },
+  spec = specs,
   install = { colorscheme = { "flattened_dark" } },
   rocks = { enabled = false },
   -- automatically check for plugin updates
