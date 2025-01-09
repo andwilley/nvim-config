@@ -112,33 +112,3 @@ vim.keymap.set('v', '*', 'y/<c-R>"<CR>', opts)
 
 vim.keymap.set('i', '<F1>', '<ESC>', opts)
 vim.keymap.set('i', 'jj', '<ESC>', opts)
-
---[[
--- functions
-fun! TrimWhitespace()
-  let l:save=winsaveview()
-  keeppatterns %s/\s\+$//e
-  call winrestview(l:save)
-endfun
-
--- get rid of the part of the path we don't want (this is pretty naive)
-fun! TrimPath(path)
-  let halves = split(a:path, 'google3/')
-  return halves[-1]
-endfun
-
--- replace the filename with BUILD
-fun! ReplaceWithBuild(path)
-  let bits = split(a:path, '/')
-  let bits[-1] = 'BUILD'
-  return join(bits, '/')
-endfun
-]]--
-
--- let the work config have the last word
-local goog = io.open("$HOME/.goog/lua/goog.lua", r)
-if goog ~= nil then
-  package.path = "~/.goog/lua/goog.lua;" .. package.path
-  require("goog")
-  io.close(goog)
-end

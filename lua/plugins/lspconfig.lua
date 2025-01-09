@@ -34,15 +34,19 @@ return {
     })
 
     -- more lsps
-    require('lspconfig').arduino_language_server.setup({
-      capabilities = capabilities,
-      cmd = {
-        "arduino-language-server",
-        "-clangd=clangd",
-        "-cli=arduino",
-        "-cli-config=/Users/rafiki/Library/Arduino15/arduino-cli.yaml",
-        "-fqbn=arduino:avr:nano",
-      },
-    })
+
+    -- Arduino if we're not at work
+    if not vim.fn.filereadable(vim.env.HOME .. "/.goog/lua/goog_plugins/goog.lua") then
+      require('lspconfig').arduino_language_server.setup({
+        capabilities = capabilities,
+        cmd = {
+          "arduino-language-server",
+          "-clangd=clangd",
+          "-cli=arduino",
+          "-cli-config=/Users/rafiki/Library/Arduino15/arduino-cli.yaml",
+          "-fqbn=arduino:avr:nano",
+        },
+      })
+    end
   end,
 }

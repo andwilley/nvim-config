@@ -18,18 +18,16 @@ local specs = {
   { import = "plugins" },
 }
 
-local goog = io.open("$HOME/.goog/lua/goog.lua", r)
-if goog ~= nil then
+if vim.fn.filereadable(vim.env.HOME .. "/.goog/lua/goog_plugins/goog.lua") then
   table.insert(specs,
     { dir = "~/.goog/", import = "goog_plugins" }
   )
-  io.close(goog)
 end
 
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = specs,
-  install = { colorscheme = { "flattened_dark" } },
+  install = { colorscheme = { "edge" } },
   rocks = { enabled = false },
   -- automatically check for plugin updates
   checker = { enabled = true },
