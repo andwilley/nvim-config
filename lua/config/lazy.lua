@@ -19,6 +19,7 @@ require("lazy").setup({
   spec = {
     -- import your plugins
     { import = "plugins" },
+    { dir = "~/.goog/", import = "goog_plugins" },
   },
   install = { colorscheme = { "flattened_dark" } },
   rocks = { enabled = false },

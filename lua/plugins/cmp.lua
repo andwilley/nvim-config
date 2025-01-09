@@ -10,6 +10,8 @@ return {
     },
     config = function()
       local cmp = require'cmp'
+      vim.opt.completeopt = { "menu", "menuone", "noselect" }
+      vim.opt.shortmess:append("c")
 
       cmp.setup({
         snippet = {
@@ -21,6 +23,13 @@ return {
         window = {
           completion = cmp.config.window.bordered(),
           documentation = cmp.config.window.bordered(),
+        },
+        sorting = {
+          comparators = {}, -- We stop all sorting to let the lsp do the sorting
+        },
+        experimental = {
+          native_menu = false,
+          ghost_text = true,
         },
         mapping = cmp.mapping.preset.insert({
           ['<C-b>'] = cmp.mapping.scroll_docs(-4),
