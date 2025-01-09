@@ -61,43 +61,15 @@ vim.cmd("autocmd BufNewFile,BufRead *.proto set syntax=proto")
 vim.cmd("autocmd BufNewFile,BufRead *.textproto set syntax=textproto")
 
 -- drew's plugins
+-- plugin keymaps are in plugin files
 require("config.lazy")
-
--- plugin keybindings and settings
-local opts = { noremap = true, silent = true }
-
--- NERDtree
-vim.keymap.set('n', '<leader>nt', ':NERDTreeToggle<CR>')
-vim.keymap.set('n', '<leader>nf', ':NERDTreeFind<CR>')
-
--- telescope
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, opts)
--- just open files (good for work where there are a lot)
-vim.keymap.set('n', '<leader>fg', function () builtin.live_grep({grep_open_files=true}) end, opts)
--- get all files in the project root (don't use this at work)
-vim.keymap.set('n', '<leader>fga', builtin.live_grep, opts)
-vim.keymap.set('n', '<leader>fb', builtin.buffers, opts)
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, opts)
 
 -- lsp
 vim.omnifunc = "v:lua.vim.lsp.omnifunc"
 
-vim.keymap.set("n", "<leader>h", vim.lsp.buf.hover, opts)
-vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-vim.keymap.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()", opts)
-vim.keymap.set("n", "<leader>g0", "<cmd>lua vim.lsp.buf.document_symbol()<CR>", opts)
-vim.keymap.set("n", "<leader>gW", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", opts)
-vim.keymap.set("n", "<leader>gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-vim.keymap.set("n", "<leader>gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-vim.keymap.set("n", "<leader>gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-vim.keymap.set("n", "<leader>gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-vim.keymap.set("n", "<leader>gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-vim.keymap.set("n", "<leader>gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
-vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
-vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
-
 -- Regular mappings
+local opts = { noremap = true, silent = true }
+
 vim.keymap.set('n', ';', ':', opts)
 vim.keymap.set('n', '<Leader>|', ':vsp<CR>:e<Space>', opts)
 vim.keymap.set('n', '<Leader>-', ':sp<CR>:e<Space>', opts)
