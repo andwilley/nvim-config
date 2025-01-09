@@ -20,6 +20,12 @@ return {
             vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
           end,
         },
+        completion = {
+          autocomplete = false,
+          get_trigger_characters = function ()
+            return {'.', '('}
+          end
+        },
         window = {
           completion = cmp.config.window.bordered(),
           documentation = cmp.config.window.bordered(),
@@ -32,10 +38,14 @@ return {
           ghost_text = true,
         },
         mapping = cmp.mapping.preset.insert({
+          -- why doesn't <leader> work here?
+          [',.'] = cmp.mapping.complete(),
           ['<C-b>'] = cmp.mapping.scroll_docs(-4),
           ['<C-f>'] = cmp.mapping.scroll_docs(4),
-          ['<C-Space>'] = cmp.mapping.complete(),
-          ['<C-e>'] = cmp.mapping.abort(),
+          ['<C-e>'] = cmp.mapping({
+            i = cmp.mapping.abort(),
+            c = cmp.mapping.close(),
+          }),
           ['<CR>'] = cmp.mapping.confirm({ select = true }),
           ['<Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
@@ -46,7 +56,7 @@ return {
               fallback()
             end
           end, { 'i', 's' }),
-          ['S-<Tab>'] = cmp.mapping(function(fallback)
+          ['<S-Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_prev_item()
             elseif vim.snippet.active({ direction = -1 }) then

@@ -2,9 +2,9 @@ return {
   'neovim/nvim-lspconfig',
   lazy = false,
   keys = {
-    {"<leader>h", "<cmd>lua vim.lsp.buf.hover()", mode = "n", noremap = true},
-    {"<leader>ca", "<cmd>lua vim.lsp.buf.code_action", mode = "n", noremap = true},
-    {"<leader>rn", "<cmd>lua vim.lsp.buf.rename()", mode = "n", noremap = true},
+    {"<leader>h", "<cmd>lua vim.lsp.buf.hover()<CR>", mode = "n", noremap = true},
+    {"<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", mode = "n", noremap = true},
+    {"<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", mode = "n", noremap = true},
     {"<leader>g0", "<cmd>lua vim.lsp.buf.document_symbol()<CR>", mode = "n", noremap = true},
     {"<leader>gW", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", mode = "n", noremap = true},
     {"<leader>gd", "<cmd>lua vim.lsp.buf.definition()<CR>", mode = "n", noremap = true},
