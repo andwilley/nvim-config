@@ -23,11 +23,11 @@ vim.opt.visualbell = true
 vim.opt.scrolloff = 3
 vim.opt.autoread = true
 vim.opt.ignorecase = true
-
 -- line numbers and highlights
 vim.opt.cursorline = true
 vim.opt.ruler = true
 vim.opt.number = true
+vim.opt.clipboard = "unnamed"
 
 -- whitespace
 vim.opt.listchars:append {
