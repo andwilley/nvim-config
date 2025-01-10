@@ -1,11 +1,11 @@
 return {
-  'nvim-telescope/telescope.nvim',
+  "nvim-telescope/telescope.nvim",
   dependencies = {
-    { 'nvim-lua/plenary.nvim' },
+    { "nvim-lua/plenary.nvim" },
   },
-  defaults =  {
+  defaults = {
     -- layout_strategy = 'vertical',
-    path_display = function(opts, path)
+    path_display = function (opts, path)
       -- Do common substitutions
       path = path:gsub("^/google/src/cloud/[^/]+/[^/]+/google3/", "google3/", 1)
       path = path:gsub("^google3/java/com/google/", "g3/j/c/g/", 1)
@@ -21,20 +21,22 @@ return {
         },
         __length = opts.__length,
       }
-      path = require('telescope.utils').transform_path(new_opts, path)
+      path = require("telescope.utils").transform_path(new_opts, path)
       opts.__length = new_opts.__length
       return path
     end,
   },
   init = function ()
     local opts = { noremap = true, silent = true }
-    local builtin = require('telescope.builtin')
-    vim.keymap.set('n', '<leader>ff', builtin.find_files, opts)
+    local builtin = require("telescope.builtin")
+    vim.keymap.set("n", "<leader>sf", builtin.find_files, opts)
     -- just open files (good for work where there are a lot)
-    vim.keymap.set('n', '<leader>fg', function () builtin.live_grep({grep_open_files=true}) end, opts)
+    vim.keymap.set("n", "<leader>sgg", function ()
+      builtin.live_grep({ grep_open_files = true })
+    end, opts)
     -- get all files in the project root (don't use this at work)
-    vim.keymap.set('n', '<leader>fga', builtin.live_grep, opts)
-    vim.keymap.set('n', '<leader>fb', builtin.buffers, opts)
-    vim.keymap.set('n', '<leader>fh', builtin.help_tags, opts)
-  end
+    vim.keymap.set("n", "<leader>sga", builtin.live_grep, opts)
+    vim.keymap.set("n", "<leader>sb", builtin.buffers, opts)
+    vim.keymap.set("n", "<leader>sh", builtin.help_tags, opts)
+  end,
 }

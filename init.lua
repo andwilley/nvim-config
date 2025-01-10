@@ -7,11 +7,11 @@ vim.g.loaded_netrwPlugin = 1
 
 -- basic options
 vim.opt.swapfile = false
-vim.opt.fileencoding = 'utf-8'
+vim.opt.fileencoding = "utf-8"
 vim.opt.history = 1000
 vim.opt.gdefault = true
 vim.g.mapleader = ","
-vim.g.japlocalleader = ','
+vim.g.japlocalleader = ","
 vim.opt.hidden = true
 -- set ttyfast lazyredraw
 vim.opt.laststatus = 2
@@ -30,16 +30,16 @@ vim.opt.number = true
 vim.opt.clipboard = "unnamed"
 
 -- whitespace
-vim.opt.listchars:append {
+vim.opt.listchars:append({
   tab = "▷ ",
   extends = "»",
   precedes = "«",
   trail = "•",
-}
+})
 vim.opt.list = true
 
 -- list of files with 100 max cols (filetype must be detected, duh)
-local long_files = {'soy', 'css', 'gss', 'scss', 'sql', 'java', 'kotlin', 'spansdl', 'bzl'}
+local long_files = { "soy", "css", "gss", "scss", "sql", "java", "kotlin", "spansdl", "bzl" }
 
 -- splits
 vim.opt.splitright = true
@@ -49,8 +49,8 @@ vim.opt.splitbelow = true
 vim.opt.expandtab = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
-vim.cmd("autocmd Filetype python setlocal tabstop=4")
-vim.cmd("autocmd Filetype python setlocal shiftwidth=4")
+vim.cmd('autocmd Filetype python setlocal tabstop=4')
+vim.cmd('autocmd Filetype python setlocal shiftwidth=4')
 vim.cmd("autocmd Filetype java setlocal tabstop=4")
 vim.cmd("autocmd Filetype java setlocal shiftwidth=4")
 
@@ -70,17 +70,17 @@ vim.omnifunc = "v:lua.vim.lsp.omnifunc"
 -- Regular mappings
 local opts = { noremap = true, silent = true }
 
-vim.keymap.set('n', ';', ':', opts)
-vim.keymap.set('n', '<Leader>|', ':vsp<CR>:e<Space>', opts)
-vim.keymap.set('n', '<Leader>-', ':sp<CR>:e<Space>', opts)
-vim.keymap.set('n', '<Leader><Space>', ':noh<CR>', opts)
-vim.keymap.set('n', '<F1>', '<ESC>', opts)
-vim.keymap.set('n', '<tab>', '%', opts)
+vim.keymap.set("n", ";", ":", opts)
+vim.keymap.set("n", "<Leader>|", ":vsp<CR>:e<Space>", opts)
+vim.keymap.set("n", "<Leader>-", ":sp<CR>:e<Space>", opts)
+vim.keymap.set("n", "<Leader><Space>", ":noh<CR>", opts)
+vim.keymap.set("n", "<F1>", "<ESC>", opts)
+vim.keymap.set("n", "<tab>", "%", opts)
 
-vim.keymap.set('v', '<tab>', '%', opts)
-vim.keymap.set('v', '/', '/\v', opts)
-vim.keymap.set('v', '<F1>', '<ESC>', opts)
-vim.keymap.set('v', '*', 'y/<c-R>"<CR>', opts)
+vim.keymap.set("v", "<tab>", "%", opts)
+vim.keymap.set("v", "/", "/\v", opts)
+vim.keymap.set("v", "<F1>", "<ESC>", opts)
+vim.keymap.set("v", "*", 'y/<c-R>"<CR>', opts)
 
-vim.keymap.set('i', '<F1>', '<ESC>', opts)
-vim.keymap.set('i', 'jj', '<ESC>', opts)
+vim.keymap.set("i", "<F1>", "<ESC>", opts)
+vim.keymap.set("i", "jj", "<ESC>", opts)
