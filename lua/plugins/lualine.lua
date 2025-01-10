@@ -1,5 +1,5 @@
 return {
-    'nvim-lualine/lualine.nvim',
+    "nvim-lualine/lualine.nvim",
     opts = {
       options = {
         icons_enabled = false,
@@ -7,8 +7,11 @@ return {
         component_separators = { left = '|', right = '|' },
         theme = 'edge',
       },
+      sections = {
+        lualine_c = { { "filename", path = 1 } },
+      },
       tabline = {
-        lualine_a = {'buffers'},
+        lualine_a = { "buffers" },
         lualine_b = {},
         lualine_c = {},
         lualine_x = {},
