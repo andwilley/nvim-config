@@ -1,5 +1,49 @@
 return {
   "nvim-telescope/telescope.nvim",
+  keys = {
+    {
+      "<leader>sf",
+      function ()
+        require("telescope.builtin").find_files()
+      end,
+      mode = "n",
+      noremap = true,
+    },
+    -- just open buffers (good for work where there are too many in the root)
+    {
+      "<leader>sgg",
+      function ()
+        require("telescope.builtin").live_grep({ grep_open_files = true })
+      end,
+      mode = "n",
+      noremap = true,
+    },
+    -- search all files in the project root (don't use this at work)
+    {
+      "<leader>sga",
+      function ()
+        require("telescope.builtin").live_grep()
+      end,
+      mode = "n",
+      noremap = true,
+    },
+    {
+      "<leader>sb",
+      function ()
+        require("telescope.builtin").buffers()
+      end,
+      mode = "n",
+      noremap = true,
+    },
+    {
+      "<leader>sh",
+      function ()
+        require("telescope.builtin").help_tags()
+      end,
+      mode = "n",
+      noremap = true,
+    },
+  },
   dependencies = {
     { "nvim-lua/plenary.nvim" },
   },
@@ -26,17 +70,4 @@ return {
       return path
     end,
   },
-  init = function ()
-    local opts = { noremap = true, silent = true }
-    local builtin = require("telescope.builtin")
-    vim.keymap.set("n", "<leader>sf", builtin.find_files, opts)
-    -- just open files (good for work where there are a lot)
-    vim.keymap.set("n", "<leader>sgg", function ()
-      builtin.live_grep({ grep_open_files = true })
-    end, opts)
-    -- get all files in the project root (don't use this at work)
-    vim.keymap.set("n", "<leader>sga", builtin.live_grep, opts)
-    vim.keymap.set("n", "<leader>sb", builtin.buffers, opts)
-    vim.keymap.set("n", "<leader>sh", builtin.help_tags, opts)
-  end,
 }
