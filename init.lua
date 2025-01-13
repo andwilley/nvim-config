@@ -27,7 +27,6 @@ vim.opt.ignorecase = true
 vim.opt.cursorline = true
 vim.opt.ruler = true
 vim.opt.number = true
-vim.opt.clipboard = "unnamed"
 
 -- whitespace
 vim.opt.listchars:append({
@@ -84,3 +83,5 @@ vim.keymap.set("v", "*", 'y/<c-R>"<CR>', opts)
 
 vim.keymap.set("i", "<F1>", "<ESC>", opts)
 vim.keymap.set("i", "jj", "<ESC>", opts)
+
+vim.keymap.set("n", "<leader>cp", ":let @+=expand('%:p')<CR>", opts)
