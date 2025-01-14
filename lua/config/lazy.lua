@@ -30,5 +30,5 @@ require("lazy").setup({
   install = { colorscheme = { "edge" } },
   rocks = { enabled = false },
   -- automatically check for plugin updates
-  checker = { enabled = true },
+  checker = { enabled = false },
 })

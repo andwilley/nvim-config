@@ -1,43 +1,37 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  opts = {
-    build = ":TSUpdate",
-    parser_install_dir = "$HOME/.local/lib/nvim/parsers",
-    config = function ()
-      local configs = require("nvim-treesitter.configs")
-      configs.setup({
-        ensure_installed = {
-          "c",
-          "cpp",
-          "css",
-          "elm",
-          "haskell",
-          "go",
-          "kotlin",
-          "ocaml",
-          "proto",
-          "rust",
-          "ruby",
-          "scala",
-          "scss",
-          "swift",
-          "typescript",
-          "sql",
-          "arduino",
-          "git",
-          "gitignore",
-          "objc",
-          "lua",
-          "vim",
-          "query",
-          "javascript",
-          "html",
-          "markdown",
+  config = function ()
+    local configs = require("nvim-treesitter.configs")
+    configs.setup({
+      parser_install_dir = "$HOME/.local/lib/nvim/parsers",
+      ensure_installed = {
+        "cpp",
+        "go",
+        "java",
+        "kotlin",
+        "haskell",
+        "ocaml",
+        "proto",
+        "rust",
+        "typescript",
+        "sql",
+        "arduino",
+        "lua",
+        "vim",
+        "markdown",
+      },
+      sync_install = false,
+      highlight = { enable = true },
+      indent = { enable = true },
+      incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = "gv",
+          node_incremental = "gn",
+          scope_incremental = "gs",
+          node_decremental = "gm",
         },
-        sync_install = false,
-        highlight = { enable = true },
-        indent = { enable = true },
-      })
-    end,
-  },
+      },
+    })
+  end,
 }
