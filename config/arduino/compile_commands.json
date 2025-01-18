@@ -1,0 +1,9 @@
+{
+  "CompileFlags": {
+    "Add": [
+      "-I/Users/rafiki/Library/Arduino15/packages/arduino/hardware/avr/1.8.6/cores/arduino",
+      "-I/Users/rafiki/Library/Arduino15/packages/arduino/hardware/avr/1.8.6/variants/eightanaloginputs",
+      "-I/Users/rafiki/Documents/Arduino/libraries/Servo/src"
+    ]
+  }
+}

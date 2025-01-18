@@ -18,10 +18,12 @@ local specs = {
   { import = "plugins" },
 }
 
-if vim.fn.filereadable(vim.env.HOME .. "/.goog/lua/goog_plugins/goog.lua") then
+local goog = io.open(vim.env.HOME .. "/.goog/lua/goog_plugins/goog.lua")
+if goog then
   table.insert(specs,
     { dir = "~/.goog/", import = "goog_plugins" }
   )
+  goog:close()
 end
 
 -- Setup lazy.nvim

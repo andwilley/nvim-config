@@ -19,7 +19,6 @@ return {
   config = function ()
     local lspconfig = require("lspconfig")
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
-    local opts = { noremap = true, silent = true }
 
     -- LUA
     lspconfig.lua_ls.setup({
@@ -51,20 +50,17 @@ return {
       },
     })
 
-    -- more lsps
+    -- Use the same config for arduino with clangd, but different setup
+    -- require("lspconfig").arduino_clangd = deepCopy(require("lspconfig").clangd)
 
-    -- Arduino if we're not at work
-    if not vim.fn.filereadable(vim.env.HOME .. "/.goog/lua/goog_plugins/goog.lua") then
-      require("lspconfig").arduino_language_server.setup({
-        capabilities = capabilities,
-        cmd = {
-          "arduino-language-server",
-          "-clangd=clangd",
-          "-cli=arduino",
-          "-cli-config=/Users/rafiki/Library/Arduino15/arduino-cli.yaml",
-          "-fqbn=arduino:avr:nano",
-        },
-      })
-    end
+    require("lspconfig").clangd.setup({
+      capabilities = capabilities,
+      filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
+      cmd = {
+        "clangd",
+        "--compile-commands-dir",
+        "./build/",
+      },
+    })
   end,
 }
