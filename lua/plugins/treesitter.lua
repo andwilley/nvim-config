@@ -4,32 +4,16 @@ return {
     local configs = require("nvim-treesitter.configs")
     configs.setup({
       parser_install_dir = "$HOME/.local/lib/nvim/parsers",
-      ensure_installed = {
-        "cpp",
-        "go",
-        "java",
-        "kotlin",
-        "haskell",
-        "ocaml",
-        "proto",
-        "rust",
-        "typescript",
-        "sql",
-        "arduino",
-        "lua",
-        "vim",
-        "markdown",
-      },
       sync_install = false,
       highlight = { enable = true },
       indent = { enable = true },
       incremental_selection = {
         enable = true,
         keymaps = {
-          init_selection = "gn",
-          node_incremental = "gn",
-          scope_incremental = "gs",
-          node_decremental = "gm",
+          init_selection = "hn",
+          node_incremental = "hn",
+          scope_incremental = "hs",
+          node_decremental = "hm",
         },
       },
     })
