@@ -70,8 +70,8 @@ vim.omnifunc = "v:lua.vim.lsp.omnifunc"
 local opts = { noremap = true, silent = true }
 
 vim.keymap.set("n", ";", ":", opts)
-vim.keymap.set("n", "<Leader>|", ":vsp<CR>:e<Space>", opts)
-vim.keymap.set("n", "<Leader>-", ":sp<CR>:e<Space>", opts)
+vim.keymap.set("n", "<Leader>|", ":vsp<CR>", opts)
+vim.keymap.set("n", "<Leader>-", ":sp<CR>>", opts)
 vim.keymap.set("n", "<Leader><Space>", ":noh<CR>", opts)
 vim.keymap.set("n", "<F1>", "<ESC>", opts)
 vim.keymap.set("n", "<tab>", "%", opts)
