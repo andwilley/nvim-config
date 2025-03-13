@@ -10,10 +10,10 @@ return {
       incremental_selection = {
         enable = true,
         keymaps = {
-          init_selection = "<leader>v",
-          node_incremental = "vn",
-          scope_incremental = "vs",
-          node_decremental = "vm",
+          init_selection = "]v",
+          node_incremental = "]v",
+          scope_incremental = "]s",
+          node_decremental = "[v",
         },
       },
     })
