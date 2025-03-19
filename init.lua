@@ -37,9 +37,6 @@ vim.opt.listchars:append({
 })
 vim.opt.list = true
 
--- list of files with 100 max cols (filetype must be detected, duh)
-local long_files = { "soy", "css", "gss", "scss", "sql", "java", "kotlin", "spansdl", "bzl" }
-
 -- splits
 vim.opt.splitright = true
 vim.opt.splitbelow = true
