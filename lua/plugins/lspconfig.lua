@@ -50,9 +50,6 @@ return {
       },
     })
 
-    -- Use the same config for arduino with clangd, but different setup
-    -- require("lspconfig").arduino_clangd = deepCopy(require("lspconfig").clangd)
-
     require("lspconfig").clangd.setup({
       capabilities = capabilities,
       filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
