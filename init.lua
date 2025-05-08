@@ -27,6 +27,7 @@ vim.opt.ignorecase = true
 vim.opt.cursorline = true
 vim.opt.ruler = true
 vim.opt.number = true
+vim.opt.termguicolors = true
 
 -- whitespace
 vim.opt.listchars:append({
@@ -45,8 +46,8 @@ vim.opt.splitbelow = true
 vim.opt.expandtab = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
-vim.cmd('autocmd Filetype python setlocal tabstop=4')
-vim.cmd('autocmd Filetype python setlocal shiftwidth=4')
+vim.cmd("autocmd Filetype python setlocal tabstop=4")
+vim.cmd("autocmd Filetype python setlocal shiftwidth=4")
 vim.cmd("autocmd Filetype java setlocal tabstop=4")
 vim.cmd("autocmd Filetype java setlocal shiftwidth=4")
 
