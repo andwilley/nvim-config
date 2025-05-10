@@ -3,7 +3,7 @@ return {
   lazy = false,
   keys = {
     { "<leader>h", "<cmd>lua vim.lsp.buf.hover()<CR>", mode = "n", noremap = true },
-    { "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", mode = "n", noremap = true },
+    { "<leader>gf", "<cmd>lua vim.lsp.buf.code_action()<CR>", mode = "n", noremap = true },
     { "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", mode = "n", noremap = true },
     { "<leader>g0", "<cmd>lua vim.lsp.buf.document_symbol()<CR>", mode = "n", noremap = true },
     { "<leader>gW", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", mode = "n", noremap = true },
