@@ -16,6 +16,7 @@ return {
     -- Define your formatters
     formatters_by_ft = {
       lua = { "stylua" },
+      markdown = { "markdownfmt" },
     },
     -- Set default options
     default_format_opts = {
