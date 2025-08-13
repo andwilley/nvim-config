@@ -20,7 +20,15 @@ return {
     local lspconfig = require("lspconfig")
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-    lspconfig.gopls.setup({})
+    lspconfig.gopls.setup({
+      settings = {
+        gopls = {
+          env = {
+            GOPACKAGESDRIVER = vim.fn.getcwd() .. "/gopackagesdriver.sh",
+          }
+        }
+      }
+    })
 
     -- LUA
     lspconfig.lua_ls.setup({
