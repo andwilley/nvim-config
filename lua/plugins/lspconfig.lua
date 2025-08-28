@@ -21,13 +21,16 @@ return {
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
     lspconfig.gopls.setup({
+      capabilities = capabilities,
       settings = {
         gopls = {
+          usePlaceholders = true,
+          completeUnimported = true,
           env = {
             GOPACKAGESDRIVER = vim.fn.getcwd() .. "/gopackagesdriver.sh",
-          }
-        }
-      }
+          },
+        },
+      },
     })
 
     -- LUA

@@ -8,7 +8,7 @@ return {
       function ()
         require("conform").format({ async = true })
       end,
-      mode = {"v", "n"},
+      mode = { "v", "n" },
       desc = "Format buffer",
     },
   },
@@ -17,6 +17,7 @@ return {
     formatters_by_ft = {
       lua = { "stylua" },
       markdown = { "markdownfmt" },
+      go = { "gofmt" },
     },
     -- Set default options
     default_format_opts = {
