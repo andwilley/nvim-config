@@ -33,6 +33,9 @@ return {
       },
     })
 
+    -- Bzl
+    lspconfig.starpls.setup({})
+
     -- LUA
     lspconfig.lua_ls.setup({
       capabilities = capabilities,
