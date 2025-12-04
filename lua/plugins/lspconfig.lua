@@ -33,6 +33,17 @@ return {
       },
     })
 
+    -- Rust
+    lspconfig.rust_analyzer.setup({
+      settings = {
+        ["rust-analyzer"] = {
+          diagnostics = {
+            enable = false,
+          },
+        },
+      },
+    })
+
     -- Bzl
     lspconfig.starpls.setup({})
 
