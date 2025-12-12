@@ -43,8 +43,8 @@ return {
         mapping = cmp.mapping.preset.insert({
           -- why doesn't <leader> work here?
           [",."] = cmp.mapping.complete(),
-          ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-          ["<C-f>"] = cmp.mapping.scroll_docs(4),
+          ["<C-b>"] = cmp.mapping.scroll_docs(-1),
+          ["<C-f>"] = cmp.mapping.scroll_docs(1),
           ["<C-e>"] = cmp.mapping({
             i = cmp.mapping.abort(),
             c = cmp.mapping.close(),

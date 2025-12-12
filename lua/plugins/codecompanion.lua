@@ -1,6 +1,5 @@
 return {
   "olimorris/codecompanion.nvim",
-  opts = {},
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
@@ -22,16 +21,15 @@ return {
       silent = true,
     },
   },
-  config = function ()
-    require("codecompanion").setup({
-      strategies = {
-        chat = {
-          adapter = "gemini",
-        },
-        inline = {
-          adapter = "gemini",
-        },
+  opts = {
+    log_level = "DEBUG",
+    strategies = {
+      chat = {
+        adapter = "gemini_cli",
       },
-    })
-  end,
+      inline = {
+        adapter = "gemini_cli",
+      },
+    },
+  },
 }
