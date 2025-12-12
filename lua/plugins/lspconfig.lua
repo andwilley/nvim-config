@@ -17,10 +17,10 @@ return {
     { "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", mode = "n", noremap = true },
   },
   config = function ()
-    local lspconfig = require("lspconfig")
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-    lspconfig.gopls.setup({
+    -- go
+    vim.lsp.config("gopls", {
       capabilities = capabilities,
       settings = {
         gopls = {
@@ -32,9 +32,10 @@ return {
         },
       },
     })
+    vim.lsp.enable("gopls")
 
     -- Rust
-    lspconfig.rust_analyzer.setup({
+    vim.lsp.config("rust_analyzer", {
       settings = {
         ["rust-analyzer"] = {
           diagnostics = {
@@ -43,12 +44,14 @@ return {
         },
       },
     })
+    vim.lsp.enable("rust_analyzer")
 
     -- Bzl
-    lspconfig.starpls.setup({})
+    vim.lsp.config("starpls", {})
+    vim.lsp.enable("starpls")
 
     -- LUA
-    lspconfig.lua_ls.setup({
+    vim.lsp.config("lua_ls", {
       capabilities = capabilities,
       on_init = function (client)
         if client.workspace_folders then
@@ -76,8 +79,9 @@ return {
         Lua = {},
       },
     })
+    vim.lsp.enable("lua_ls")
 
-    require("lspconfig").clangd.setup({
+    vim.lsp.config("clangd", {
       capabilities = capabilities,
       filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
       cmd = {
@@ -86,5 +90,6 @@ return {
         "./build/",
       },
     })
+    vim.lsp.enable("clangd")
   end,
 }
