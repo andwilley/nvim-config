@@ -1,6 +1,7 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   lazy = false,
+  branch = "master",
   config = function ()
     vim.opt.runtimepath:prepend("$HOME/.local/lib/nvim/parsers")
     local configs = require("nvim-treesitter.configs")
