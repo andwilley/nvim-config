@@ -85,7 +85,7 @@ return {
       capabilities = capabilities,
       filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
       cmd = {
-        "clangd",
+        "clangd-21",
         "--compile-commands-dir",
         "./build/",
       },
