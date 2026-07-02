@@ -83,11 +83,9 @@ return {
 
     vim.lsp.config("clangd", {
       capabilities = capabilities,
-      filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
+      filetypes = { "c", "cpp", "h", "hpp", "objc", "objcpp", "cuda", "proto" },
       cmd = {
-        "clangd-21",
-        "--compile-commands-dir",
-        "./build/",
+        "clangd-22",
       },
     })
     vim.lsp.enable("clangd")
