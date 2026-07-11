@@ -1,23 +1,11 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  lazy = false,
-  branch = "master",
-  config = function ()
-    vim.opt.runtimepath:prepend("$HOME/.local/lib/nvim/parsers")
-    local configs = require("nvim-treesitter.configs")
-    configs.setup({
-      parser_install_dir = "$HOME/.local/lib/nvim/parsers",
-      sync_install = false,
-      highlight = { enable = true },
-      indent = { enable = true },
-      incremental_selection = {
+  build = ":TSUpdate",
+  config = function()
+    require("nvim-treesitter").setup({
+      auto_install = false,
+      highlight = {
         enable = true,
-        keymaps = {
-          init_selection = "]v",
-          node_incremental = "]v",
-          scope_incremental = "]s",
-          node_decremental = "[v",
-        },
       },
     })
   end,

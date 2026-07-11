@@ -18,10 +18,12 @@ return {
   },
   config = function ()
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
+    vim.lsp.config("*", {
+      capabilities = capabilities,
+    })
 
     -- go
     vim.lsp.config("gopls", {
-      capabilities = capabilities,
       settings = {
         gopls = {
           usePlaceholders = true,
@@ -47,12 +49,10 @@ return {
     vim.lsp.enable("rust_analyzer")
 
     -- Bzl
-    vim.lsp.config("starpls", {})
     vim.lsp.enable("starpls")
 
     -- LUA
     vim.lsp.config("lua_ls", {
-      capabilities = capabilities,
       on_init = function (client)
         if client.workspace_folders then
           local path = client.workspace_folders[1].name
@@ -82,7 +82,6 @@ return {
     vim.lsp.enable("lua_ls")
 
     vim.lsp.config("clangd", {
-      capabilities = capabilities,
       filetypes = { "c", "cpp", "h", "hpp", "objc", "objcpp", "cuda", "proto" },
       cmd = {
         "clangd-22",
