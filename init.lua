@@ -1,6 +1,3 @@
--- runtime path for parser directory
-vim.opt.runtimepath:prepend("$HOME/.local/lib/nvim/parsers")
-
 -- disable netrw for nvim-tree
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -13,17 +10,14 @@ vim.opt.gdefault = true
 vim.g.mapleader = ","
 vim.g.japlocalleader = ","
 vim.opt.hidden = true
--- set ttyfast lazyredraw
 vim.opt.laststatus = 2
 vim.opt.modelines = 0
 vim.opt.showmode = false
 vim.opt.showcmd = true
--- vim.opt.backspace = [indent,eol,start]
 vim.opt.visualbell = true
 vim.opt.scrolloff = 3
 vim.opt.autoread = true
 vim.opt.ignorecase = true
--- line numbers and highlights
 vim.opt.cursorline = true
 vim.opt.ruler = true
 vim.opt.number = true
@@ -67,19 +61,18 @@ vim.omnifunc = "v:lua.vim.lsp.omnifunc"
 -- Regular mappings
 local opts = { noremap = true, silent = true }
 
-vim.keymap.set("n", ";", ":", opts)
 vim.keymap.set("n", "<Leader>|", ":vsp<CR>", opts)
 vim.keymap.set("n", "<Leader>-", ":sp<CR>>", opts)
 vim.keymap.set("n", "<Leader><Space>", ":noh<CR>", opts)
 vim.keymap.set("n", "<F1>", "<ESC>", opts)
 vim.keymap.set("n", "<tab>", "%", opts)
+vim.keymap.set("n", "]v", "van", { desc = "Init treesitter selection" })
+
+vim.keymap.set("x", "]v", "an", { desc = "Increment node selection" })
+vim.keymap.set("x", "[v", "in", { desc = "Decrement node selection" })
 
 vim.keymap.set("v", "<tab>", "%", opts)
-vim.keymap.set("v", "/", "/\v", opts)
 vim.keymap.set("v", "<F1>", "<ESC>", opts)
 vim.keymap.set("v", "*", 'y/<c-R>"<CR>', opts)
 
 vim.keymap.set("i", "<F1>", "<ESC>", opts)
-vim.keymap.set("i", "jj", "<ESC>", opts)
-
-vim.keymap.set("n", "<leader>cp", ":let @+=expand('%:p')<CR>", opts)
